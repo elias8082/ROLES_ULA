@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Usuarios</title>
     <!-- Incluir Bootstrap 4 desde CDN -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    
+
+    <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <style>
         body {
             margin: 5px;
@@ -16,6 +25,40 @@
         table {
             margin-top: 10px;
         }
+
+        .accordion .card-header:after {
+    font-family: 'FontAwesome';  
+    content: "\f068";
+    float: right; 
+}
+.accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f067"; 
+}
+
+
+.btn.focus, .btn:focus {
+    
+    box-shadow: none;
+}
+
+        
+
+    .btn-link {
+      color: inherit; /* Elimina el color azul */
+      text-decoration: none; /* Quita el subrayado */
+    }
+    .btn-link:hover {
+      color: inherit; /* Asegura que no cambie el color al pasar el mouse */
+      text-decoration: none; /* Mantiene sin subrayado al pasar el mouse */
+    }
+
+
+    .form-control:active {
+
+      border: 1px solid #ced4da;
+    }
+
     </style>
 </head>
 <body>
@@ -101,10 +144,7 @@
         <div id="listado"></div>
     </div>
 
-    <!-- Incluir jQuery y Bootstrap JS desde CDN -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 
     <script>
         function mostrarListado() {
@@ -2356,53 +2396,111 @@ case 'Creador del curso':
 
 
 
-<div class="container ">
-    <h2 class="text-center">Permisos por Rol</h2>
-    <div class="table-responsive">
-      <table class="table table-striped table-bordered">
-        <thead style="background-color: #2b897e; border-color: #2b897e; color: #fff;">
-          <tr>
-            <th>Rol</th>            
-            <th>Descripci&oacute;n</th>
 
-          </tr>
-        </thead>
-        <tbody>
-          
-          
-          <tr>
-            <td><strong>Creador de curso</strong></td>            
-            <td><strong>Permisos de profesor</strong>
-            <p>Con este rol los usuarios tienen permisos de profesor, con los cuales ellos pueden editar la p&aacute;gina principal, pueden crear cursos, pueden editar las configuraciones del curso, pueden inscribir a otros usuarios, pueden ver cursos ocultos.</p><br>
-               <p> 1. De la p&aacute;gina principal pueden visualizar y realizar lo siguiente: administraci&oacute;n del sitio, activar la edici&oacute;n, pueden editar el banner, agregar o eliminar bloques, recursos y editar todo el front de la p&aacute;gina inicial.</p>
-               <p> 2. Desde la p&aacute;gina del frontend tambi&eacute;n podr&aacute; crear un curso y configurarlo. </p>
-               <p> 3. Dentro del curso, el usuario tambi&eacute;n podr&aacute; activar la edici&oacute;n; puede editar el banner, agregar o eliminar bloques, recursos y actividades. Tambi&eacute;n podr&aacute; configurar el libro de calificaciones, como agregar, actualizar o borrar una calificaci&oacute;n; podr&aacute; matricular usuarios, tendr&aacute; el control total de poder configurar todo lo que requiera dentro del curso.</p>
-               <img src="https://tinyurl.com/27wqh7lu" alt="Imagen 1" class="img-fluid" style="border-radius: 8px;">
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Coordinador Acad Presencial</strong></td>           
-            <td><strong>Tiene permisos de manager</strong>
-            <p> Con este rol, los usuarios que lo tengan asignado pueden acceder a cursos y modificarlos, adem&aacute;s de realizar ciertos trabajos a nivel administrativo relacionados con cursos, usuarios, configuraci&oacute;n de calificaciones, etc.</p><br>
-                <p> 1. De la p&aacute;gina principal pueden visualizar y realizar lo siguiente: administraci&oacute;n del sitio, activar la edici&oacute;n, pueden editar el banner, agregar o eliminar bloques, recursos y editar todo el front de la p&aacute;gina inicial.</p>
-                <p> 2. Dentro del curso, el usuario tambi&eacute;n podr&aacute; activar la edici&oacute;n; puede editar el banner, agregar o eliminar bloques, recursos y actividades. Tambi&eacute;n podr&aacute; configurar el libro de calificaciones, como agregar, actualizar o borrar una calificaci&oacute;n; podr&aacute; matricular usuarios, tendr&aacute; el control total de poder configurar todo lo que requiera dentro del curso.</p>
-                <img src="https://tinyurl.com/27wqh7lu" alt="Imagen 1" class="img-fluid" style="border-radius: 8px;">
-             </td>
-          </tr>
-          <tr>
-            <td><strong>Asesor WA</strong></td>            
-            <td><strong>Permiso de profesor sin permisos de edici&oacute;n</strong>
+<div class="container mt-5">
+
+  <h2 class="text-left">Permisos por Rol</h2>
+  
+  <div id="accordion">
+    <!-- Collapsible 1 -->
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link d-flex justify-content-between w-100" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Rol Creador del Curso
+            <span><i class="fas fa-chevron-down"></i></span>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <strong>Permisos de profesor</strong>
+          <p>Con este rol los usuarios tienen permisos de profesor, con los cuales ellos pueden editar la p&aacute;gina principal, pueden crear cursos, pueden editar las configuraciones del curso, pueden inscribir a otros usuarios, pueden ver cursos ocultos.</p><br>
+          <p> 1. De la p&aacute;gina principal pueden visualizar y realizar lo siguiente: administraci&oacute;n del sitio, activar la edici&oacute;n, pueden editar el banner, agregar o eliminar bloques, recursos y editar todo el front de la p&aacute;gina inicial.</p>
+          <p> 2. Desde la p&aacute;gina del frontend tambi&eacute;n podr&aacute; crear un curso y configurarlo. </p>
+          <p> 3. Dentro del curso, el usuario tambi&eacute;n podr&aacute; activar la edici&oacute;n; puede editar el banner, agregar o eliminar bloques, recursos y actividades. Tambi&eacute;n podr&aacute; configurar el libro de calificaciones, como agregar, actualizar o borrar una calificaci&oacute;n; podr&aacute; matricular usuarios, tendr&aacute; el control total de poder configurar todo lo que requiera dentro del curso.</p>
+          <img src="https://tinyurl.com/27wqh7lu" alt="Imagen 1" class="img-fluid" style="border-radius: 8px;">
+             
+        </div>
+      </div>
+    </div>
+    <!-- Collapsible 2 -->
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link d-flex justify-content-between w-100" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Rol Asesor WA
+            <span><i class="fas fa-chevron-down"></i></span>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          <strong>Permiso de profesor sin permisos de edici&oacute;n</strong>
             <p> Con este rol los usuarios solo tienen permisos de profesor sin permiso de edici&oacute;n; ellos no pueden editar nada en la p&aacute;gina principal y tampoco en el curso.</p><br>
                 <p> 1. De la p&aacute;gina principal solo tendr&aacute; acceso a lo que se muestra en la imagen.</p>
                 <p> 2. Dentro del curso, el usuario solo tendr&aacute; acceso a lo que se muestra en la imagen.</p>                    
                 <img src="https://tinyurl.com/2czjpqrd" alt="Imagen 1" class="img-fluid" style="border-radius: 8px;">
-             </td>
-            
-          </tr>
-        </tbody>
-      </table>
+             
+        </div>
+      </div>
+    </div>
+    <!-- Collapsible 3 -->
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn btn-link d-flex justify-content-between w-100" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Rol Coordinador Acad&eacute;mico Presencial
+            <span><i class="fas fa-chevron-down"></i></span>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+          <strong>Tiene permisos de manager</strong>
+            <p> Con este rol, los usuarios que lo tengan asignado pueden acceder a cursos y modificarlos, adem&aacute;s de realizar ciertos trabajos a nivel administrativo relacionados con cursos, usuarios, configuraci&oacute;n de calificaciones, etc.</p><br>
+                <p> 1. De la p&aacute;gina principal pueden visualizar y realizar lo siguiente: administraci&oacute;n del sitio, activar la edici&oacute;n, pueden editar el banner, agregar o eliminar bloques, recursos y editar todo el front de la p&aacute;gina inicial.</p>
+                <p> 2. Dentro del curso, el usuario tambi&eacute;n podr&aacute; activar la edici&oacute;n; puede editar el banner, agregar o eliminar bloques, recursos y actividades. Tambi&eacute;n podr&aacute; configurar el libro de calificaciones, como agregar, actualizar o borrar una calificaci&oacute;n; podr&aacute; matricular usuarios, tendr&aacute; el control total de poder configurar todo lo que requiera dentro del curso.</p>
+                <img src="https://tinyurl.com/27wqh7lu" alt="Imagen 1" class="img-fluid" style="border-radius: 8px;">
+             
+        </div>
+      </div>
     </div>
   </div>
+</div>
+
+<!-- Agregar Font Awesome para los íconos -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- Script para cambiar íconos dinámicamente y cerrar los demás colapsables -->
+<script>
+  $(document).ready(function () {
+    // Cambiar el ícono de la flecha cuando se expande o colapsa
+    $('.collapse').on('show.bs.collapse', function () {
+      $(this).prev('.card-header').find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+    }).on('hide.bs.collapse', function () {
+      $(this).prev('.card-header').find('i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+    });
+
+    // Asegurar que solo un collapsable esté abierto a la vez
+    $('#accordion').on('show.bs.collapse', function (e) {
+      // Cerrar todos los collapsables excepto el que se está abriendo
+      $('#accordion .collapse').not(e.target).collapse('hide');
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<p style="padding-top: 24px;"></p>
 
 
 
@@ -2424,8 +2522,6 @@ case 'Creador del curso':
     </div>
   </footer>
   
-
-
-
+  
 </body>
 </html>
