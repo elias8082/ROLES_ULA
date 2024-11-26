@@ -1,0 +1,2431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Usuarios</title>
+    <!-- Incluir Bootstrap 4 desde CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 5px;
+        }
+        .container {
+            margin-top: 10px;
+        }
+        table {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CODIGO DEL BANNER -->
+
+	
+		
+		<img src="https://tinyurl.com/28mtrsdd" alt="Imagen 1" class="img-fluid" style="border-radius: 8px;">
+		
+
+	<!-- Cierre de la etiqueta -->
+
+
+
+    <div class="container ">
+        <h2 class="text-center">Tabla de Roles</h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead style="background-color: #2b897e; border-color: #2b897e; color: #fff;">
+              <tr>
+                <th>Rol</th>
+                <th>Usuarios</th>
+                <th>Permisos</th>
+                
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Admin</td>
+                <td>12</td>
+                <td>Acceso total a todo el sitio</td>
+                
+              </tr>
+              <tr>
+                <td>Manager</td>
+                <td>21</td>
+                <td>Tiene permisos de edici&oacute;n</td>
+              </tr>
+              <tr>
+                <td>Creador de curso</td>
+                <td>1</td>
+                <td>Tiene permisos de profesor</td>
+                
+              </tr>
+              <tr>
+                <td>Coordinador Acad Presencial</td>
+                <td>147</td>
+                <td>Tiene permisos de manager</td>
+                
+              </tr>
+              <tr>
+                <td>Asesor WA</td>
+                <td>128</td>
+                <td>Permiso de profesor sin permisos de edici&oacute;n</td>
+                
+                
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+    <div class="container">
+        <h2>Usuarios por Rol</h2>
+        <!-- Selector de opciones con clase de Bootstrap -->
+        <div class="form-group">
+            <label for="opciones">Elige un Rol:</label>
+            <select id="opciones" class="form-control" onchange="mostrarListado()">
+                <option value="">Selecciona un rol</option>
+                <option value="Admin">Admin</option>
+                <option value="Manager">Manager</option>
+                <option value="Coordinador academico">Coordinador acad&eacute;mico</option>
+                <option value="Asesor WA">Asesor WA</option>
+                <option value="Creador del curso">Creador del curso</option>                
+            </select>
+        </div>
+
+        <!-- Contenedor para mostrar el listado -->
+        <div id="listado"></div>
+    </div>
+
+    <!-- Incluir jQuery y Bootstrap JS desde CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function mostrarListado() {
+            const opcion = document.getElementById('opciones').value;
+            const listado = document.getElementById('listado');
+            let usuarios = [];
+
+            switch(opcion) {
+                
+                case 'Admin':
+                    usuarios = [
+ {
+   "user_id": 39,
+   "username": "lmb_admin",
+   "firstname": "LMB",
+   "lastname": "Admin",
+   "email": "vle_admin1@apollo.edu",
+   "role": "admin"
+ },
+ {
+   "user_id": 140567,
+   "username": "user_bloqueo_moodle",
+   "firstname": "User",
+   "lastname": "Bloqueo Moodle",
+   "email": "user_bloqueo_moodle@ula.edu.mx",
+   "role": "admin"
+ },
+ {
+   "user_id": 230048,
+   "username": "extensionuniversitaria",
+   "firstname": "Extension",
+   "lastname": "Universitaria servicio",
+   "email": "extensionuniversitaria@local.com",
+   "role": "admin"
+ },
+ {
+   "user_id": 226456,
+   "username": "zendesk.service",
+   "firstname": "Zendesk",
+   "lastname": "Service",
+   "email": "zendesk.service@local.com",
+   "role": "admin"
+ },
+ {
+   "user_id": 35,
+   "username": "elias.arenas@lottuseducation.com",
+   "firstname": "Elias",
+   "lastname": "Roberto Arenas",
+   "email": "elias.arenas@lottuseducation.com",
+   "role": "admin"
+ },
+ {
+   "user_id": 277211,
+   "username": "servicio.middleware",
+   "firstname": "Usuario Servicio",
+   "lastname": "Middleware",
+   "email": "servicio.middleware@local.com",
+   "role": "admin"
+ },
+ {
+   "user_id": 147808,
+   "username": "antonio.ruizlaureano@uteg.mx",
+   "firstname": "Jos� Antonio",
+   "lastname": "Ruiz Laureano",
+   "email": "antonio.ruizlaureano@uteg.mx",
+   "role": "admin"
+ },
+ {
+   "user_id": 38,
+   "username": "teresa.zermeno",
+   "firstname": "Maite",
+   "lastname": "Zermeno",
+   "email": "teresa.zermeno@ula.edu.mx",
+   "role": "admin"
+ },
+ {
+   "user_id": 299484,
+   "username": "ws.restorecourse",
+   "firstname": "Servicio",
+   "lastname": "Restore course",
+   "email": "ws.restorecourse@local.com",
+   "role": "admin"
+ },
+ {
+   "user_id": 34,
+   "username": "daniel.delaluz@lottuseducation.com",
+   "firstname": "Daniel",
+   "lastname": "De la Luz",
+   "email": "daniel.delaluz@lottuseducation.com",
+   "role": "admin"
+ },
+ {
+   "user_id": 37,
+   "username": "hduenas",
+   "firstname": "Hugo",
+   "lastname": "Due�as",
+   "email": "hugo.duenas@lottuseducation.com",
+   "role": "admin"
+ },
+ {
+   "user_id": 2,
+   "username": "admin",
+   "firstname": "Administrador",
+   "lastname": "Usuario",
+   "email": "hugo.duenas@ula.edu.mx",
+   "role": "admin"
+ }
+];
+                    break;
+                case 'Manager':
+                    usuarios = [
+ {
+   "user_id": 88325,
+   "username": "oswaldo.mora",
+   "firstname": "Oswaldo",
+   "lastname": "Acevedo Mora",
+   "role": "manager"
+ },
+ {
+   "user_id": 88389,
+   "username": "vzamora",
+   "firstname": "Viridiana",
+   "lastname": "Avalos Zamora",
+   "role": "manager"
+ },
+ {
+   "user_id": 113872,
+   "username": "calidad",
+   "firstname": "Calidad",
+   "lastname": "Calidad",
+   "role": "manager"
+ },
+ {
+   "user_id": 126764,
+   "username": "mauricio.castro2@lottuseducation.com",
+   "firstname": "Mauricio",
+   "lastname": "Castro",
+   "role": "manager"
+ },
+ {
+   "user_id": 270475,
+   "username": "marco.castrog@lottuseducation.com",
+   "firstname": "MARCO",
+   "lastname": "CASTRO",
+   "role": "manager"
+ },
+ {
+   "user_id": 87983,
+   "username": "sandra.cortes",
+   "firstname": "Sandra",
+   "lastname": "Cortes",
+   "role": "manager"
+ },
+ {
+   "user_id": 141729,
+   "username": "mabel.delabrena",
+   "firstname": "Mabel",
+   "lastname": "De la Brena",
+   "role": "manager"
+ },
+ {
+   "user_id": 89406,
+   "username": "rosalinda.gallegos",
+   "firstname": "Rosalinda",
+   "lastname": "Gallegos",
+   "role": "manager"
+ },
+ {
+   "user_id": 307080,
+   "username": "oscar.macias@lottuseducation.com",
+   "firstname": "Oscar",
+   "lastname": "Garcia Macias",
+   "role": "manager"
+ },
+ {
+   "user_id": 231001,
+   "username": "jorge.gil@dominio.com",
+   "firstname": "Jorge",
+   "lastname": "Gil",
+   "role": "manager"
+ },
+ {
+   "user_id": 298387,
+   "username": "ernesto.hernandez@lottuseducation.com",
+   "firstname": "Ernesto Alejandro",
+   "lastname": "Hernandez Ortiz",
+   "role": "manager"
+ },
+ {
+   "user_id": 100378,
+   "username": "ws.medallia",
+   "firstname": "Ws",
+   "lastname": "medallia",
+   "role": "manager"
+ },
+ {
+   "user_id": 231100,
+   "username": "oswaldom.revisor",
+   "firstname": "Oswaldo",
+   "lastname": "Mora Revisor",
+   "role": "manager"
+ },
+ {
+   "user_id": 96879,
+   "username": "edson.parra",
+   "firstname": "Edson",
+   "lastname": "Parra",
+   "role": "manager"
+ },
+ {
+   "user_id": 93503,
+   "username": "antonio.ruiz",
+   "firstname": "Antonio",
+   "lastname": "Ruiz",
+   "role": "manager"
+ },
+ {
+   "user_id": 2953,
+   "username": "u99272327",
+   "firstname": "ALFONSO",
+   "lastname": "SALVIO GARCIA",
+   "role": "manager"
+ },
+ {
+   "user_id": 89065,
+   "username": "armando.sanchez",
+   "firstname": "Armando Jos�",
+   "lastname": "S�nchez",
+   "role": "manager"
+ },
+ {
+   "user_id": 215030,
+   "username": "ivan.sierra",
+   "firstname": "Jesus Ivan",
+   "lastname": "Sierra Martinez",
+   "role": "manager"
+ },
+ {
+   "user_id": 88214,
+   "username": "u99226838",
+   "firstname": "Jes�s Iv�n",
+   "lastname": "Sierra Mart�nez",
+   "role": "manager"
+ },
+ {
+   "user_id": 238430,
+   "username": "john.villegas",
+   "firstname": "Jonathan",
+   "lastname": "Villegas",
+   "role": "manager"
+ },
+ {
+   "user_id": 87845,
+   "username": "sonia.villegas",
+   "firstname": "Sonia",
+   "lastname": "Villegas",
+   "role": "manager"
+ }
+];
+
+break;
+case 'Coordinador academico':
+                    usuarios = [
+
+                    
+ {
+   "user_id": 107237,
+   "username": "sayra.aguilar",
+   "firstname": "Sayra Paola",
+   "lastname": "Aguilar",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88314,
+   "username": "saguilar",
+   "firstname": "SERGIO JOS�",
+   "lastname": "AGUILAR ALCAL�",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 105672,
+   "username": "u99358721",
+   "firstname": "SAYRA PAOLA",
+   "lastname": "AGUILAR BUENROSTRO",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88307,
+   "username": "mraguilar",
+   "firstname": "MARCELA ALEJANDRA",
+   "lastname": "AGUILAR CUEVAS",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 90220,
+   "username": "guillermo.aguilar",
+   "firstname": "Guillermo",
+   "lastname": "Aguilar Garza",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88342,
+   "username": "yohanna.alfaro",
+   "firstname": "Yohanna",
+   "lastname": "Alfaro",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 92551,
+   "username": "juan.diego",
+   "firstname": "Juan",
+   "lastname": "Alvarez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 97092,
+   "username": "u99354796",
+   "firstname": "MARICELA",
+   "lastname": "ALVAREZ ESQUIVEL",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 239818,
+   "username": "jordi.angeles",
+   "firstname": "Jordi Daniel",
+   "lastname": "Angeles Hernandez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88309,
+   "username": "nesanchez",
+   "firstname": "NADIA",
+   "lastname": "ARAMBULA SANCHEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 113741,
+   "username": "mariana.arechiga",
+   "firstname": "Mariana",
+   "lastname": "Arechiga Carrillo Arellano",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88288,
+   "username": "hareval",
+   "firstname": "HILDA",
+   "lastname": "AREVALO ALTAMIRANO",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 91473,
+   "username": "carlos.arjona",
+   "firstname": "Carlos",
+   "lastname": "Arjona",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88283,
+   "username": "clascencio",
+   "firstname": "CLAUDIA",
+   "lastname": "ASCENCIO PERALTA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88327,
+   "username": "aurora.villegas",
+   "firstname": "VILLEGAS HERRERA",
+   "lastname": "AURORA CECILIA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88305,
+   "username": "mlavina",
+   "firstname": "MARIA DE LA LUZ",
+   "lastname": "AVIA GAMIO",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88357,
+   "username": "eliseo.bautista",
+   "firstname": "Eliseo",
+   "lastname": "Bautista Mercado",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88347,
+   "username": "adrian.zamora",
+   "firstname": "Adrian",
+   "lastname": "Bautista Zamora",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88292,
+   "username": "jgbonilla",
+   "firstname": "JORGE ALBERTO",
+   "lastname": "BONILLA LOPEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 92549,
+   "username": "laura.brito",
+   "firstname": "Laura",
+   "lastname": "Brito",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88313,
+   "username": "rpcaballero",
+   "firstname": "ROSALBA PATRICIA",
+   "lastname": "CABALLERO SOLANO",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 43589,
+   "username": "u99282744",
+   "firstname": "GREGORIO",
+   "lastname": "CANO MANRIQUE",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 141865,
+   "username": "rcapdeville",
+   "firstname": "Rosaura Yareli",
+   "lastname": "Capdevielle Cuevas",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88302,
+   "username": "macarden",
+   "firstname": "Maria Alicia",
+   "lastname": "Cardena Reygadas",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88356,
+   "username": "marisol.otanez",
+   "firstname": "Marisol",
+   "lastname": "Carreon Otanez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 90222,
+   "username": "gabriela.castaneda1",
+   "firstname": "Gabriela",
+   "lastname": "Casta�eda Palacios",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 84392,
+   "username": "u99343409",
+   "firstname": "DIEGO",
+   "lastname": "CASTELLANOS MAYA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 6935,
+   "username": "u99253891",
+   "firstname": "CECILIA",
+   "lastname": "CEJUDO GUTIERREZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 216520,
+   "username": "araceli.celis",
+   "firstname": "Araceli",
+   "lastname": "Celis Ortega",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 216522,
+   "username": "salvador.chavez",
+   "firstname": "Salvador",
+   "lastname": "Chavez Urbina",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88355,
+   "username": "liliana.villa",
+   "firstname": "Liliana Patricia",
+   "lastname": "Consuegra Villa",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 149263,
+   "username": "fcontreras",
+   "firstname": "Fabiola",
+   "lastname": "Contreras Ramirez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88348,
+   "username": "antonio.tovar",
+   "firstname": "Antonio",
+   "lastname": "Copin Tovar",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88299,
+   "username": "lmcortes",
+   "firstname": "LUZ MARIA",
+   "lastname": "CORTES ALDANA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88279,
+   "username": "afcruz",
+   "firstname": "ALFONSO",
+   "lastname": "CRUZ CAMACHO",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 216521,
+   "username": "alejandra.cruz",
+   "firstname": "Alejandra",
+   "lastname": "Cruz del Alba",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88326,
+   "username": "elopez",
+   "firstname": "LOPEZ LUGO",
+   "lastname": "ELSA KARINA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 98077,
+   "username": "karime.escorcia",
+   "firstname": "Karime",
+   "lastname": "Escorcia",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88291,
+   "username": "jeaguilar",
+   "firstname": "EDUARDO",
+   "lastname": "ESPINDOLA AGUILAR",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88330,
+   "username": "dgarcia",
+   "firstname": "David",
+   "lastname": "Estrada Garc�a",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88296,
+   "username": "jmfernand",
+   "firstname": "MIGUEL ANGEL",
+   "lastname": "FERNANDEZ VILLAVICENCIO",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 113740,
+   "username": "alejandra.flores2",
+   "firstname": "Alejandra Paola",
+   "lastname": "Flores Coria",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 196154,
+   "username": "b.fraire",
+   "firstname": "BRUNO",
+   "lastname": "FRAIRE JIMENEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88344,
+   "username": "ivon.fuentes",
+   "firstname": "Ivon",
+   "lastname": "Fuentes",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 141829,
+   "username": "pgallardo",
+   "firstname": "Poulet",
+   "lastname": "Gallardo Martinez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 105411,
+   "username": "profesor.uteg4",
+   "firstname": "OSCAR",
+   "lastname": "GARCIA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88322,
+   "username": "egarcia",
+   "firstname": "EDUARDO",
+   "lastname": "GARCIA GAMEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88293,
+   "username": "jjuarez3",
+   "firstname": "JOSE CHARBEL",
+   "lastname": "GARCIA JUAREZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88339,
+   "username": "jjuearez3",
+   "firstname": "Jos� Charbel",
+   "lastname": "Garcia Ju�rez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 313175,
+   "username": "alejandra.garcia@ula.edu.mx",
+   "firstname": "Alejandra",
+   "lastname": "Garcia Lagunas",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 105443,
+   "username": "u99358638",
+   "firstname": "OSCAR GABRIEL",
+   "lastname": "GARCIA MACIAS",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 96173,
+   "username": "u99353947",
+   "firstname": "MARIO GIOVHANNI",
+   "lastname": "GARCIA OCAMPO",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 150324,
+   "username": "u99372063",
+   "firstname": "JULIO",
+   "lastname": "GARCIA SANCHEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88349,
+   "username": "jennifer.gomez",
+   "firstname": "Jennifer",
+   "lastname": "G�mez Nava",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88308,
+   "username": "mrgonzalez",
+   "firstname": "MARTHA RAQUEL",
+   "lastname": "GONZALEZ BARRON",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88303,
+   "username": "mcgonzalez",
+   "firstname": "MONICA",
+   "lastname": "GONZALEZ MONTHELET",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88341,
+   "username": "mintzita.zavala",
+   "firstname": "Mintzita Elia",
+   "lastname": "Guadarrama Zavala",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 258943,
+   "username": "emmanuel.guerrero",
+   "firstname": "Emmanuel",
+   "lastname": "Guerrero",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88320,
+   "username": "avazquez1",
+   "firstname": "ABRAHAM ALEJANDRO",
+   "lastname": "GUTIRREZ VZQUEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 216523,
+   "username": "ruben.heredia",
+   "firstname": "Ruben Carlos",
+   "lastname": "Heredia Juarez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88298,
+   "username": "lhernandez",
+   "firstname": "LAURA MARGARITA",
+   "lastname": "HERN�NDEZ P�REZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 123700,
+   "username": "u99207722",
+   "firstname": "YAZMIN GUADALUPE",
+   "lastname": "HERNANDEZ SANJUAN",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88290,
+   "username": "ivazquez1",
+   "firstname": "IVONNE",
+   "lastname": "HERNANDEZ VAZQUEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88329,
+   "username": "josue.nieto",
+   "firstname": "GARCIA NIETO",
+   "lastname": "JOSUE",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 225879,
+   "username": "pamela.juarez",
+   "firstname": "PAMELA ELIZABETH",
+   "lastname": "JUAREZ ULLOA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88282,
+   "username": "bajuarez",
+   "firstname": "AGUSTIN",
+   "lastname": "JUAREZ ZEPEDA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88315,
+   "username": "schavarria",
+   "firstname": "SARA",
+   "lastname": "LARA CHAVARRIA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 249851,
+   "username": "karla.lataban",
+   "firstname": "Karla",
+   "lastname": "Lataban",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88297,
+   "username": "kvelazquez",
+   "firstname": "KARLA",
+   "lastname": "LICONA VELAZQUEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 322450,
+   "username": "hana.linares@uvt.edu.mx",
+   "firstname": "Jakeline Hana",
+   "lastname": "Linares Merlos",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88332,
+   "username": "jose.lopez3",
+   "firstname": "Jos�",
+   "lastname": "L�pez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 138064,
+   "username": "victor.lopez3",
+   "firstname": "V�ctor",
+   "lastname": "L�pez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88346,
+   "username": "juandiego.lopez",
+   "firstname": "Juan",
+   "lastname": "L�pez Ram�rez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 90562,
+   "username": "abril.luna",
+   "firstname": "Abril Iridian",
+   "lastname": "Luna Correa",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88294,
+   "username": "jmaciel",
+   "firstname": "JOS� DE JES�S",
+   "lastname": "MACIEL GUERRA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88328,
+   "username": "maria.miranda",
+   "firstname": "MIRANDA TEMAHUAY",
+   "lastname": "MARIA FERNANDA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 322449,
+   "username": "karen.martinez@utc.mx",
+   "firstname": "Karen Janet",
+   "lastname": "Mart�nes Bello",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88824,
+   "username": "gmartinez",
+   "firstname": "Gabriela",
+   "lastname": "Mart�nez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88306,
+   "username": "mmartinez1",
+   "firstname": "MA. FRANCISCA",
+   "lastname": "MARTINEZ GONZALEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88351,
+   "username": "gabriela.martinez",
+   "firstname": "Gabriela",
+   "lastname": "Mart�nez Mart�nez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 322448,
+   "username": "gabriela.martinez@utc.mx",
+   "firstname": "Gabriela",
+   "lastname": "Mart�nez Mart�nez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 141866,
+   "username": "omartinez",
+   "firstname": "Osvaldo Daniel",
+   "lastname": "Martinez Paniagua",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88310,
+   "username": "osmartinez",
+   "firstname": "OSCAR",
+   "lastname": "MARTINEZ VALDEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88331,
+   "username": "mmata",
+   "firstname": "Miguel Angel",
+   "lastname": "Mata",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88333,
+   "username": "mtinoco",
+   "firstname": "Montserrat",
+   "lastname": "M�ndez Tinoco",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88295,
+   "username": "jmendoza",
+   "firstname": "JULIO IV�N",
+   "lastname": "MENDOZA ARTEAGA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88343,
+   "username": "doris.mexia",
+   "firstname": "Doris Beatriz",
+   "lastname": "Mex�a Rivera",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 97080,
+   "username": "u99354784",
+   "firstname": "PAOLA GESEL",
+   "lastname": "MIER L",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88336,
+   "username": "bmontelongo",
+   "firstname": "Belem Montserrat",
+   "lastname": "Montelongo Trinidad",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 225878,
+   "username": "carlos.morado",
+   "firstname": "CARLOS MIGUEL",
+   "lastname": "MORADO HERNANDEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 249849,
+   "username": "joselyn.morales",
+   "firstname": "Joselyn",
+   "lastname": "Morales",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 97079,
+   "username": "u99354783",
+   "firstname": "MAURICIO",
+   "lastname": "MORALES GARCIA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 74814,
+   "username": "u99334444",
+   "firstname": "STEPHANY",
+   "lastname": "MU�OZ BENITEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88350,
+   "username": "mayte.olmos",
+   "firstname": "Mayte",
+   "lastname": "Olmos Figueroa",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 18478,
+   "username": "yazmin.sanjuan",
+   "firstname": "Programas ULA",
+   "lastname": "Online",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88338,
+   "username": "uorduna",
+   "firstname": "Ubaldo",
+   "lastname": "Ordu�a Rodriguez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88319,
+   "username": "aoropeza",
+   "firstname": "ARLEM YOLOXOCHITL",
+   "lastname": "OROPEZA ALDAY",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88324,
+   "username": "lortega",
+   "firstname": "LUIS GUILLERMO",
+   "lastname": "ORTEGA CUE",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88312,
+   "username": "portuno",
+   "firstname": "PALMIRA",
+   "lastname": "ORTUO CASTILLO",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88345,
+   "username": "eric.padilla",
+   "firstname": "Eric Daniel",
+   "lastname": "Padilla Almazan",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88337,
+   "username": "mcruz1",
+   "firstname": "Maria Del Carmen",
+   "lastname": "Pe�a Cruz",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88316,
+   "username": "sperez",
+   "firstname": "SILVIA",
+   "lastname": "PEREZ SANCHEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88311,
+   "username": "piperez",
+   "firstname": "PEDRO IVAN",
+   "lastname": "PEREZ VARGAS",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88280,
+   "username": "apetrides",
+   "firstname": "ANDREA ROMY",
+   "lastname": "PETRIDES MADRID",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 276883,
+   "username": "eduardo.ramirez@uteg.edu.mx",
+   "firstname": "EDUARDO",
+   "lastname": "RAMIREZ MAYA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 63629,
+   "username": "u99323832",
+   "firstname": "DIANA ARELI",
+   "lastname": "RAMIREZ ROMAN",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 129789,
+   "username": "n.reyescruz",
+   "firstname": "NAOMI",
+   "lastname": "REYES CRUZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 141867,
+   "username": "lreyes1",
+   "firstname": "Laura Lilia",
+   "lastname": "Reyes Guzman",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88317,
+   "username": "xcrodrig",
+   "firstname": "CONSTANZA",
+   "lastname": "RODRIGUEZ NAREDO",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 216524,
+   "username": "frida.rodriguez",
+   "firstname": "Frida",
+   "lastname": "Rodriguez Rodriguez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 182427,
+   "username": "u99382089",
+   "firstname": "ASTRID EUADNE",
+   "lastname": "RODRIGUEZ SALAZAR",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 226898,
+   "username": "u99390098",
+   "firstname": "CRISTIAN JES�S",
+   "lastname": "RODR�GUEZ SANVICENTE",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88334,
+   "username": "rromero",
+   "firstname": "Ruben",
+   "lastname": "Romero Fragoso",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88289,
+   "username": "irromero",
+   "firstname": "IRMA",
+   "lastname": "ROMERO GONZALEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88300,
+   "username": "lyromo",
+   "firstname": "LYDIA",
+   "lastname": "ROMO CARVAJAL",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88340,
+   "username": "luis.rosa@ula.edu.mx",
+   "firstname": "Luis Javier",
+   "lastname": "Rosas Barajas",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88304,
+   "username": "merosas",
+   "firstname": "MARIA ESTHER",
+   "lastname": "ROSAS RODRIGUEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 141868,
+   "username": "yrosete",
+   "firstname": "Yessica",
+   "lastname": "Rosete Castelan",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 96327,
+   "username": "u99354090",
+   "firstname": "JOSE ANTONIO",
+   "lastname": "RUIZ LAUREANO",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 91489,
+   "username": "u99349691",
+   "firstname": "JOSE ANTONIO",
+   "lastname": "RUIZ LAUREANO",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 84127,
+   "username": "u99343163",
+   "firstname": "DAYANA IXZELT",
+   "lastname": "RUIZ MATEOS",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 216519,
+   "username": "michelle.salmeron",
+   "firstname": "Michelle Yedid",
+   "lastname": "Salmeron Page",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 249850,
+   "username": "rebeca.sanchez@ula.edu.mx",
+   "firstname": "Rebeca",
+   "lastname": "S�nchez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 225877,
+   "username": "andrea.sanchez",
+   "firstname": "ANDREA YARETH",
+   "lastname": "SANCHEZ PEREZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 224423,
+   "username": "u99389292",
+   "firstname": "MARCOS",
+   "lastname": "SANTIAGO BARAJAS",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88352,
+   "username": "norma.santillana",
+   "firstname": "Norma",
+   "lastname": "Santillana",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 92542,
+   "username": "nadia.sotelo",
+   "firstname": "Nadia",
+   "lastname": "Sotelo",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 141838,
+   "username": "nsotelo",
+   "firstname": "Nadia",
+   "lastname": "Sotelo Nu�ez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88354,
+   "username": "deyanira.sotero",
+   "firstname": "Deyanira",
+   "lastname": "Sotero",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 91063,
+   "username": "miriam.tellez",
+   "firstname": "Miriam Patricia",
+   "lastname": "Tellez Giron",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 91227,
+   "username": "u99349468",
+   "firstname": "MIRIAM PATRICIA",
+   "lastname": "TELLEZ GIRON LEON",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 308683,
+   "username": "etna.tellez@lottuseducation.com",
+   "firstname": "Etna Beatriz",
+   "lastname": "Tellez Molina",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88281,
+   "username": "artoledo",
+   "firstname": "AURA",
+   "lastname": "TOLEDO ESCOBAR",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88286,
+   "username": "fneyra",
+   "firstname": "FRANCISCO MIGUEL",
+   "lastname": "TREJO NEYRA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88335,
+   "username": "mrios",
+   "firstname": "Mayra Chantal",
+   "lastname": "Trejo Rios",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 152819,
+   "username": "academiape",
+   "firstname": "Academia",
+   "lastname": "ULA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88323,
+   "username": "vvalencia",
+   "firstname": "VANNESA",
+   "lastname": "VALENCIA MEJIA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 300634,
+   "username": "hugo.vazquez@uteg.edu.mx",
+   "firstname": "Hugo Antonio",
+   "lastname": "Vazquez Martin",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88318,
+   "username": "alvega",
+   "firstname": "ALEXIS",
+   "lastname": "VEGA MONROY",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88285,
+   "username": "eenriquez",
+   "firstname": "ESTELA",
+   "lastname": "VELAZQUEZ ENRIQUEZ",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 18476,
+   "username": "u99223401",
+   "firstname": "PATRICIA",
+   "lastname": "VIDAL NOLASCO",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88284,
+   "username": "dnvillafuerte",
+   "firstname": "DIANA",
+   "lastname": "VILLAFUERTE CASTILLO",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88287,
+   "username": "ggarcia2",
+   "firstname": "GABRIELA",
+   "lastname": "VILLANUEVA GARCIA",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88353,
+   "username": "maria.villegas",
+   "firstname": "Mar�a",
+   "lastname": "Villegas",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 146701,
+   "username": "bvirtual.revisor",
+   "firstname": "Biblioteca",
+   "lastname": "Virtual Revisor",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 141831,
+   "username": "szamudio",
+   "firstname": "Samantha",
+   "lastname": "Zamudio Rodriguez",
+   "role": "coord_acad_presencial"
+ },
+ {
+   "user_id": 88301,
+   "username": "lzavala",
+   "firstname": "LARIZZA",
+   "lastname": "ZAVALA YOE",
+   "role": "coord_acad_presencial"
+ }
+
+                    ];
+
+
+
+
+                    break;
+case 'Asesor WA':
+                    usuarios = [
+ {
+   "user_id": 99439,
+   "username": "d.alvarez",
+   "firstname": "Diana Marilu",
+   "lastname": "Alvarez Marin",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 97078,
+   "username": "u99354782",
+   "firstname": "DIANA MARILU",
+   "lastname": "ALVAREZ MARIN",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 64605,
+   "username": "u99296994",
+   "firstname": "VICTOR ALONSO",
+   "lastname": "ARELLANO GODINEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 20870,
+   "username": "u99293439",
+   "firstname": "MARIO",
+   "lastname": "ARELLANO SOLORIO",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 305350,
+   "username": "d.ariascervantes@my.ula.edu.mx",
+   "firstname": "Dulce Mar�a",
+   "lastname": "Arias Hern�ndez",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 172208,
+   "username": "u99379544",
+   "firstname": "NADIA MARLENE",
+   "lastname": "AVENDA�O CASTILLO",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 142643,
+   "username": "savila",
+   "firstname": "Sonia",
+   "lastname": "Avila Almanza",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 127194,
+   "username": "u99363665",
+   "firstname": "MARIA FERNANDA",
+   "lastname": "AZUARA LOPEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 4247,
+   "username": "u99262502",
+   "firstname": "ANDREA",
+   "lastname": "BACA RODRIGUEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 118341,
+   "username": "u99362430",
+   "firstname": "MARIA FERNANDA",
+   "lastname": "BALTIERRA MATEOS",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 316183,
+   "username": "mireya.banuelos@ula.edu.mx",
+   "firstname": "Mireya",
+   "lastname": "Ba�uelos Pe�on",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 102142,
+   "username": "jose.baqueiro",
+   "firstname": "Jose Roman",
+   "lastname": "Baqueiro",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 19946,
+   "username": "u99251310",
+   "firstname": "LIDIA",
+   "lastname": "BECERRIL PEREZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 199653,
+   "username": "u99385185",
+   "firstname": "ELIZABETH",
+   "lastname": "BELTRAN HERNANDEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 97083,
+   "username": "u99354787",
+   "firstname": "SANDRA",
+   "lastname": "BLANCO CEPEDA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 94115,
+   "username": "u99352119",
+   "firstname": "RICARDO ALBERTO",
+   "lastname": "BONILLA LUGO",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 97088,
+   "username": "u99354792",
+   "firstname": "DULCE MARIA",
+   "lastname": "CABRERA MORALES",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 65818,
+   "username": "u99326298",
+   "firstname": "JENNIFER",
+   "lastname": "CASTRO DIAZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 91970,
+   "username": "u99350167",
+   "firstname": "DAYANA",
+   "lastname": "CHAN RODRIGUEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 303042,
+   "username": "a00013785",
+   "firstname": "DIANA",
+   "lastname": "CORONA GONZALEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 127195,
+   "username": "u99363666",
+   "firstname": "VIRIDIANA",
+   "lastname": "CRAVIOTTO PENA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 118338,
+   "username": "u99362427",
+   "firstname": "DAMARIZ ARIADNE",
+   "lastname": "DE LA CRUZ ELORZA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 70406,
+   "username": "u99330502",
+   "firstname": "RODRIGO MARCOS",
+   "lastname": "DE LA ROSA ALVAREZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 97081,
+   "username": "u99354785",
+   "firstname": "KARINA MARISOL",
+   "lastname": "D MORALES",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 89840,
+   "username": "cenriquez",
+   "firstname": "Carlos Alberto",
+   "lastname": "Enriquez Pedroso",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 97090,
+   "username": "u99354794",
+   "firstname": "CARLOS ALBERTO",
+   "lastname": "ENRIQUEZ PEDROZO",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 15188,
+   "username": "u99268809",
+   "firstname": "JOHANA",
+   "lastname": "ESCOBEDO CHAVEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 264997,
+   "username": "abigail.espinosa2@lottuseducation.com",
+   "firstname": "Abigail",
+   "lastname": "Espinosa",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 264998,
+   "username": "internacional@lottus.com",
+   "firstname": "Internacional",
+   "lastname": "ExtUniv",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 219091,
+   "username": "daniel.fernandez",
+   "firstname": "Daniel",
+   "lastname": "Fernandez",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 70419,
+   "username": "u99330505",
+   "firstname": "JOSE ANTONIO",
+   "lastname": "FLORES GARCIA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 290831,
+   "username": "a00013786",
+   "firstname": "QUETZALLI",
+   "lastname": "GARCES VILLANUEVA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 137677,
+   "username": "juanmanuel.garcia",
+   "firstname": "Juan Manuel",
+   "lastname": "Garc�a Castillo",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 136081,
+   "username": "u99367811",
+   "firstname": "NELSON AUGUSTO",
+   "lastname": "GARCIA VALENZUELA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 129027,
+   "username": "u99364729",
+   "firstname": "JAZMIN ANAHI",
+   "lastname": "GOMEZ LOPEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 89654,
+   "username": "jared.maviael",
+   "firstname": "Jared Maviael",
+   "lastname": "Gonzalez Gonzalez",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 7346,
+   "username": "u99306245",
+   "firstname": "CECILIA",
+   "lastname": "GONZALEZ GONZALEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 44697,
+   "username": "u99318085",
+   "firstname": "PATRICIA",
+   "lastname": "GONZALEZ RAMIREZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 90342,
+   "username": "gisela.gonzalez",
+   "firstname": "Gisela",
+   "lastname": "Gonz�lez� Herrera",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 157534,
+   "username": "u99374677",
+   "firstname": "VERONICA",
+   "lastname": "GRANT MARTINEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 91677,
+   "username": "rene.andrade",
+   "firstname": "RENE",
+   "lastname": "GUADARRAMA ANDRADE",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 123855,
+   "username": "u99363186",
+   "firstname": "DAMARIS",
+   "lastname": "GUEVARA DURAN",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 138859,
+   "username": "u99368465",
+   "firstname": "GABRIELA ITZAYANA",
+   "lastname": "GUTIERREZ RAMIREZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 20150,
+   "username": "u99282018",
+   "firstname": "LAURA",
+   "lastname": "GUZMAN WERTT",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 228033,
+   "username": "u99390391",
+   "firstname": "LAURA LILIANA",
+   "lastname": "GUZMAN WERTT",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 316181,
+   "username": "alejandra.hernandez@ula.edu.mx",
+   "firstname": "Alejandra Litzaret",
+   "lastname": "Hernandez Acosta",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 90341,
+   "username": "judith.hernandez",
+   "firstname": "Judith",
+   "lastname": "Hern�ndez Barrera",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 5213,
+   "username": "u99296764",
+   "firstname": "ARACELI MERCEDES ISAMAR",
+   "lastname": "HERNANDEZ MARTINEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 76776,
+   "username": "u99336176",
+   "firstname": "ERIKA LEONOR",
+   "lastname": "HERNANDEZ MARTINEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 89862,
+   "username": "u99270066",
+   "firstname": "JOSE DANIEL",
+   "lastname": "HERNANDEZ MEJIA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 2240,
+   "username": "u99268806",
+   "firstname": "ADRIANA",
+   "lastname": "HERNANDEZ MENDOZA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 1938,
+   "username": "u99324171",
+   "firstname": "JESUS EMMANUEL",
+   "lastname": "HERNANDEZ SAN JUAN",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 89556,
+   "username": "itzel.herrera@ula.edu.mx",
+   "firstname": "Itzel",
+   "lastname": "Herrera",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 90561,
+   "username": "itzel.herrera",
+   "firstname": "Itzel",
+   "lastname": "Herrera Renteria",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 290833,
+   "username": "a00013787",
+   "firstname": "GILMAR YAMILETH",
+   "lastname": "HERRERA VAZQUEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 304039,
+   "username": "a00013042",
+   "firstname": "LETICIA MARIELENA",
+   "lastname": "HUERTA SOLIS",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 93718,
+   "username": "u99351737",
+   "firstname": "VICTOR",
+   "lastname": "INFANTE REYES",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 24788,
+   "username": "u99304433",
+   "firstname": "MONSERRAT",
+   "lastname": "JERONIMO CARMONA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 165626,
+   "username": "u99377948",
+   "firstname": "PAMELA ITZEL",
+   "lastname": "JIMENEZ GARCIA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 89841,
+   "username": "flopez",
+   "firstname": "Fernando Thomas",
+   "lastname": "L�pez Alejandri",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 23756,
+   "username": "u99248661",
+   "firstname": "MAYRA",
+   "lastname": "LOPEZ PEREA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 90562,
+   "username": "abril.luna",
+   "firstname": "Abril Iridian",
+   "lastname": "Luna Correa",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 76787,
+   "username": "u99336184",
+   "firstname": "ITZEL",
+   "lastname": "LUNA RODRIGUEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 199562,
+   "username": "u99385167",
+   "firstname": "MONTSERRAT",
+   "lastname": "MARTINEZ CHAVARIN",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 20069,
+   "username": "u99270688",
+   "firstname": "LAURA",
+   "lastname": "MARTINEZ DIAZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 97084,
+   "username": "u99354788",
+   "firstname": "PATRICIA ABIGAIL",
+   "lastname": "MARTINEZ LOPEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 8966,
+   "username": "u99248456",
+   "firstname": "DULCE",
+   "lastname": "MATEO MONTES",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 123854,
+   "username": "u99363185",
+   "firstname": "ROCIO GUADALUPE",
+   "lastname": "MEDINA SANCHEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 76785,
+   "username": "u99336183",
+   "firstname": "ELIZABETH",
+   "lastname": "MENDOZA ALVARADO",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 213380,
+   "username": "u99387052",
+   "firstname": "SAMANTHA",
+   "lastname": "MENDOZA DIAZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 97093,
+   "username": "u99354797",
+   "firstname": "DAMARA JANET",
+   "lastname": "MONTERO TRUJILLO",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 280897,
+   "username": "a00013736",
+   "firstname": "CARLOS ALBERTO",
+   "lastname": "MONTIEL JIMENEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 28004,
+   "username": "u99304029",
+   "firstname": "TANIA",
+   "lastname": "MONTIEL SOTO",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 76791,
+   "username": "u99336186",
+   "firstname": "KARLA JIMENA",
+   "lastname": "MORALES GALICIA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 97079,
+   "username": "u99354783",
+   "firstname": "MAURICIO",
+   "lastname": "MORALES GARCIA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 80142,
+   "username": "u99339364",
+   "firstname": "SUSANA MARICELA",
+   "lastname": "MORENO MU�IZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 76775,
+   "username": "u99254533",
+   "firstname": "PALOMA",
+   "lastname": "MUT LOPEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 136080,
+   "username": "u99367810",
+   "firstname": "NADIA AURORA",
+   "lastname": "NIETO VENEGAS",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 129788,
+   "username": "u99365287",
+   "firstname": "ZAYDA",
+   "lastname": "NOCHES ROSENDO",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 18478,
+   "username": "yazmin.sanjuan",
+   "firstname": "Programas ULA",
+   "lastname": "Online",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 36599,
+   "username": "u99314401",
+   "firstname": "FERNANDO",
+   "lastname": "ORTIZ GUEVARA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 13675,
+   "username": "u99240254",
+   "firstname": "IVAN",
+   "lastname": "ORTIZ VAQUERO",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 4378,
+   "username": "u99283296",
+   "firstname": "ANA",
+   "lastname": "PADILLA BALTAZAR",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 90340,
+   "username": "rosa.padilla",
+   "firstname": "Rosa Karina",
+   "lastname": "Padilla Mart�nez",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 240902,
+   "username": "r.penagarcia@my.ula.edu.mx",
+   "firstname": "Raul Brandon",
+   "lastname": "Pena Garcia",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 117470,
+   "username": "u99311420",
+   "firstname": "WENDY",
+   "lastname": "PERALTA VALADEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 52897,
+   "username": "u99320290",
+   "firstname": "PERLA GUADALUPE",
+   "lastname": "PEREZ ARCE",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 76789,
+   "username": "u99336185",
+   "firstname": "BRENDA LIZETH",
+   "lastname": "PEREZ HERNANDEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 68041,
+   "username": "u99328244",
+   "firstname": "LUIS ENRIQUE",
+   "lastname": "PEREZ NU�EZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 305748,
+   "username": "u99390325",
+   "firstname": "AURORA ROXANA ",
+   "lastname": "PICAZO ALVAREZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 91486,
+   "username": "u99349690",
+   "firstname": "EMMANUEL",
+   "lastname": "RAMOS RODRIGUEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 188855,
+   "username": "u99382944",
+   "firstname": "BRENDA VIANEY",
+   "lastname": "RANGEL ORDO�EZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 129789,
+   "username": "n.reyescruz",
+   "firstname": "NAOMI",
+   "lastname": "REYES CRUZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 7422,
+   "username": "u99311903",
+   "firstname": "CESAR",
+   "lastname": "RIVAS DURAN",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 129345,
+   "username": "helianne.rocha",
+   "firstname": "Helianne Herminia",
+   "lastname": "Rocha Acosta",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 43787,
+   "username": "u99316897",
+   "firstname": "HELIANNE",
+   "lastname": "ROCHA ACOSTA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 97082,
+   "username": "u99354786",
+   "firstname": "ADRIAN",
+   "lastname": "RODRIGUEZ CAMPOS",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 23099,
+   "username": "u99248694",
+   "firstname": "MARIA",
+   "lastname": "RODRIGUEZ MOLINA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 144209,
+   "username": "u99323853",
+   "firstname": "IRIS VIOLETA",
+   "lastname": "ROJAS SERRANO",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 52896,
+   "username": "u99320289",
+   "firstname": "KARLA MAGALI",
+   "lastname": "ROMERO BECERRIL",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 115716,
+   "username": "sofia.sanchez",
+   "firstname": "Sof�a",
+   "lastname": "S�nchez",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 199561,
+   "username": "u99385166",
+   "firstname": "KARINA ABIGAIL",
+   "lastname": "SANCHEZ ORDAZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 17876,
+   "username": "u99253889",
+   "firstname": "KAREN JHOANA",
+   "lastname": "SOREQUE LEON",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 279264,
+   "username": "a00013729",
+   "firstname": "VIVIANA",
+   "lastname": "SOTO VIDAL",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 10570,
+   "username": "u99287116",
+   "firstname": "ERIKA",
+   "lastname": "TAPIA VAZQUEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 76794,
+   "username": "u99336188",
+   "firstname": "MIGUEL",
+   "lastname": "TELLO HURTADO",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 247704,
+   "username": "usuario.temp104",
+   "firstname": "DULCE NOHEMI MUIZ REYES",
+   "lastname": "TEMP",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 247706,
+   "username": "usuario.temp106",
+   "firstname": "ELISA FRAIRE RANGEL",
+   "lastname": "TEMP",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 247701,
+   "username": "usuario.temp101",
+   "firstname": "FRANCISCO DANIEL DAVILA RECIO",
+   "lastname": "TEMP",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 247703,
+   "username": "usuario.temp103",
+   "firstname": "JOSE LUIS VILLAGRANA GONZALEZ",
+   "lastname": "TEMP",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 247705,
+   "username": "usuario.temp105",
+   "firstname": "URI ISAAC VELARDE OLIVER",
+   "lastname": "TEMP",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 247700,
+   "username": "usuario.temp100",
+   "firstname": "VANESSA ANA MARIA VILLANUEVA BARRIOS",
+   "lastname": "TEMP",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 247702,
+   "username": "usuario.temp102",
+   "firstname": "VIOLETA VILLANUEVA RIVERA",
+   "lastname": "TEMP",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 118340,
+   "username": "u99362429",
+   "firstname": "ESMERALDA",
+   "lastname": "TORRES BONILLA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 290932,
+   "username": "a00013789",
+   "firstname": "GUILLERMO EDUARDO",
+   "lastname": "TORRES MARTINEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 76782,
+   "username": "u99336181",
+   "firstname": "GIZE",
+   "lastname": "TORRES ROCHA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 91485,
+   "username": "u99349689",
+   "firstname": "ARACELI KARINA",
+   "lastname": "TORRES VASQUEZ",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 76792,
+   "username": "u99336187",
+   "firstname": "MIGUEL ANGEL",
+   "lastname": "TREJO CORPUS",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 133751,
+   "username": "u99367033",
+   "firstname": "JOAQUIN DEL CARMEN",
+   "lastname": "TREJO TREJO",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 264996,
+   "username": "extensionuniversitariaula@ula.edu.mx",
+   "firstname": "Extensi�n Universitaria",
+   "lastname": "ULA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 303082,
+   "username": "a00012718",
+   "firstname": "GLORIA ESMERALDA",
+   "lastname": "VALLADARES FONSECA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 118339,
+   "username": "u99362428",
+   "firstname": "FERNANDO HASSIVE",
+   "lastname": "VAZQUEZ RIVERA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 97085,
+   "username": "u99354789",
+   "firstname": "URI ISAAC",
+   "lastname": "VELARDE OLIVER",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 97086,
+   "username": "u99354790",
+   "firstname": "JOSE LUIS",
+   "lastname": "VILLAGRANA G",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 97087,
+   "username": "u99354791",
+   "firstname": "VIOLETA",
+   "lastname": "VILLANUEVA RIVERA",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 316180,
+   "username": "monica.zapata@ula.edu.mx",
+   "firstname": "Monica",
+   "lastname": "Zapata Pacheco",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 28669,
+   "username": "u99307468",
+   "firstname": "SANDRA",
+   "lastname": "ZARZA URIBE",
+   "role": "asesorwa"
+ },
+ {
+   "user_id": 123856,
+   "username": "u99363187",
+   "firstname": "MARCO ANTONIO",
+   "lastname": "ZUNIGA HERNANDEZ",
+   "role": "asesorwa"
+ }
+];
+
+
+
+
+
+
+                    break;
+case 'Creador del curso':
+                    usuarios = [
+ {
+   "user_id": 113872,
+   "username": "calidad",
+   "firstname": "Calidad",
+   "lastname": "Calidad",
+   "role": "Profesor"
+ }
+ 
+];
+
+
+
+
+
+
+
+                    break;
+                default:
+                    usuarios = [];
+            }
+
+            listado.innerHTML = ''; // Limpiar el contenido anterior
+            if (usuarios.length > 0) {
+                // Crear tabla con Bootstrap
+                let tablaHTML = '<table class="table table-striped"><thead><tr><th>User ID</th><th>Username</th><th>Firstname</th><th>Lastname</th><th>Role</th></tr></tr></thead><tbody>';
+                usuarios.forEach(user => {
+                    tablaHTML += `<tr><td>${user.user_id}</td><td>${user.username}</td><td>${user.firstname}</td><td>${user.lastname}</td><td>${user.role}</td></tr>`;
+                });
+                tablaHTML += '</tbody></table>';
+                listado.innerHTML = tablaHTML;
+            } else {
+                listado.innerHTML = '<p class="alert alert-warning">No hay usuarios con este rol</p>';
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+<div class="container ">
+    <h2 class="text-center">Permisos por Rol</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead style="background-color: #2b897e; border-color: #2b897e; color: #fff;">
+          <tr>
+            <th>Rol</th>            
+            <th>Descripci&oacute;n</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          
+          
+          <tr>
+            <td><strong>Creador de curso</strong></td>            
+            <td><strong>Permisos de profesor</strong>
+            <p>Con este rol los usuarios tienen permisos de profesor, con los cuales ellos pueden editar la p&aacute;gina principal, pueden crear cursos, pueden editar las configuraciones del curso, pueden inscribir a otros usuarios, pueden ver cursos ocultos.</p><br>
+               <p> 1. De la p&aacute;gina principal pueden visualizar y realizar lo siguiente: administraci&oacute;n del sitio, activar la edici&oacute;n, pueden editar el banner, agregar o eliminar bloques, recursos y editar todo el front de la p&aacute;gina inicial.</p>
+               <p> 2. Desde la p&aacute;gina del frontend tambi&eacute;n podr&aacute; crear un curso y configurarlo. </p>
+               <p> 3. Dentro del curso, el usuario tambi&eacute;n podr&aacute; activar la edici&oacute;n; puede editar el banner, agregar o eliminar bloques, recursos y actividades. Tambi&eacute;n podr&aacute; configurar el libro de calificaciones, como agregar, actualizar o borrar una calificaci&oacute;n; podr&aacute; matricular usuarios, tendr&aacute; el control total de poder configurar todo lo que requiera dentro del curso.</p>
+               <img src="https://tinyurl.com/27wqh7lu" alt="Imagen 1" class="img-fluid" style="border-radius: 8px;">
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Coordinador Acad Presencial</strong></td>           
+            <td><strong>Tiene permisos de manager</strong>
+            <p> Con este rol, los usuarios que lo tengan asignado pueden acceder a cursos y modificarlos, adem&aacute;s de realizar ciertos trabajos a nivel administrativo relacionados con cursos, usuarios, configuraci&oacute;n de calificaciones, etc.</p><br>
+                <p> 1. De la p&aacute;gina principal pueden visualizar y realizar lo siguiente: administraci&oacute;n del sitio, activar la edici&oacute;n, pueden editar el banner, agregar o eliminar bloques, recursos y editar todo el front de la p&aacute;gina inicial.</p>
+                <p> 2. Dentro del curso, el usuario tambi&eacute;n podr&aacute; activar la edici&oacute;n; puede editar el banner, agregar o eliminar bloques, recursos y actividades. Tambi&eacute;n podr&aacute; configurar el libro de calificaciones, como agregar, actualizar o borrar una calificaci&oacute;n; podr&aacute; matricular usuarios, tendr&aacute; el control total de poder configurar todo lo que requiera dentro del curso.</p>
+                <img src="https://tinyurl.com/27wqh7lu" alt="Imagen 1" class="img-fluid" style="border-radius: 8px;">
+             </td>
+          </tr>
+          <tr>
+            <td><strong>Asesor WA</strong></td>            
+            <td><strong>Permiso de profesor sin permisos de edici&oacute;n</strong>
+            <p> Con este rol los usuarios solo tienen permisos de profesor sin permiso de edici&oacute;n; ellos no pueden editar nada en la p&aacute;gina principal y tampoco en el curso.</p><br>
+                <p> 1. De la p&aacute;gina principal solo tendr&aacute; acceso a lo que se muestra en la imagen.</p>
+                <p> 2. Dentro del curso, el usuario solo tendr&aacute; acceso a lo que se muestra en la imagen.</p>                    
+                <img src="https://tinyurl.com/2czjpqrd" alt="Imagen 1" class="img-fluid" style="border-radius: 8px;">
+             </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <footer class="text-white pt-4 pb-2" style="background-color: #2b897e;" >    
+  
+      <!-- Línea divisoria -->
+      <hr class="bg-white">
+  
+      <!-- Derechos reservados -->
+      <div class="text-center small">
+        &copy; 2024 lottuseducation.
+      </div>
+    </div>
+  </footer>
+  
+
+
+
+</body>
+</html>
